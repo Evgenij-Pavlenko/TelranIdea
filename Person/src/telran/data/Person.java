@@ -24,11 +24,20 @@ public class Person implements Comparable<Person> {
         setAdress(adress);
     }
 
-    public static void getPesons(Person[] pers) {
-        for (Person p : pers) {
-            System.out.println(p.toString());
+//    public static void displayArrayPersons(Person[] pers) {
+//        for (Person p : pers) {
+//            System.out.println(p.toString());
+//        }
+//    }
+    public static void displayArrayPersons(Person[] pers) {
+        for (int i= 0; i <pers.length; i++) {
+            if (pers[i] != null) {
+                System.out.println(pers[i]);
+            }
         }
     }
+
+
 
     public static void findByName(Person[] pers, String name) {
         int flag = 0;
@@ -45,7 +54,7 @@ public class Person implements Comparable<Person> {
 
     }
 
-    public static void findNamedByCity(Person[] pers, String city) {
+    public static void listCityMembers(Person[] pers, String city) {
         int flag = 0;
         for (Person p : pers) {
             if (p.getAdress().getCity().equalsIgnoreCase(city)) {
@@ -57,6 +66,23 @@ public class Person implements Comparable<Person> {
         if (flag == 0) {
             System.out.println("Not found1");
         }
+    }
+    public static Person[] listCityMembers(Person[] pers, String city, int size){
+        int flag = 0;
+        int i = 0;
+        Person[] persList = new Person[size];
+        for (Person p : pers) {
+            if (p.getAdress().getCity().equalsIgnoreCase(city)) {
+                flag = 1;
+                persList[i++] = p;
+            }
+
+        }
+        if (flag == 0) {
+            System.out.println("Not found1");
+
+        }
+        return persList;
     }
 
     public int compareTo(Person person) {
