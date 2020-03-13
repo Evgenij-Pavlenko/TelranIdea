@@ -25,7 +25,7 @@ public class PersonApp {
         sortByStreet(persons);
         System.out.println("Sortet Arrey");
         displayArrayPersons(persons);
-        listCityMembers(persons, "berlin");
+        listCityMembers(persons, "berli");
 
 //        listCityMembers(persons, "berlin");
         System.out.println("List Person");

@@ -24,19 +24,18 @@ public class Person implements Comparable<Person> {
         setAdress(adress);
     }
 
-//    public static void displayArrayPersons(Person[] pers) {
+    //    public static void displayArrayPersons(Person[] pers) {
 //        for (Person p : pers) {
 //            System.out.println(p.toString());
 //        }
 //    }
     public static void displayArrayPersons(Person[] pers) {
-        for (int i= 0; i <pers.length; i++) {
+        for (int i = 0; i < pers.length; i++) {
             if (pers[i] != null) {
                 System.out.println(pers[i]);
             }
         }
     }
-
 
 
     public static void findByName(Person[] pers, String name) {
@@ -64,10 +63,11 @@ public class Person implements Comparable<Person> {
 
         }
         if (flag == 0) {
-            System.out.println("Not found1");
+            System.out.println("There are no users in this city " + city);
         }
     }
-    public static Person[] listCityMembers(Person[] pers, String city, int size){
+
+    public static Person[] listCityMembers(Person[] pers, String city, int size) {
         int flag = 0;
         int i = 0;
         Person[] persList = new Person[size];
@@ -79,7 +79,7 @@ public class Person implements Comparable<Person> {
 
         }
         if (flag == 0) {
-            System.out.println("Not found1");
+            System.out.println("There are no users in city " + city);
 
         }
         return persList;
@@ -92,7 +92,7 @@ public class Person implements Comparable<Person> {
     public static void sortByStreet(Person[] pers) {
         for (int i = 0; i < pers.length - i; i++) {
             for (int j = 0; j < pers.length - 1; j++) {
-                if (pers[j].compareTo(pers[j+1])>0) {
+                if (pers[j].compareTo(pers[j + 1]) > 0) {
                     Person temp = pers[j];
                     pers[j] = pers[j + 1];
                     pers[j + 1] = temp;
