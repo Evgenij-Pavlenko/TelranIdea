@@ -7,8 +7,8 @@ public class Main {
 
         Integer c = 500;
         Integer d = 500;
-        System.out.println(a==b);
-        System.out.println(c==d);//false
+        System.out.println(a == b);
+        System.out.println(c == d);//false
         System.out.println(c.equals(d));//true
         System.out.println(c.compareTo(d)); // 0  (null)
 
@@ -30,8 +30,26 @@ public class Main {
         System.out.println(str4[0]);
         System.out.println(str3.replace(" ", ""));
 
+        /*
+        Homework
+        Написать метод, который будет получать в качестве параметра String,
+        проверять первые три символа и и если String не начинается с "not", будет прибавлять "not"  к началу строки,
+         а если начинается, то будет отрезать "not" и перемещать в конец строки.
+         */
+
+        System.out.println(notString2("notstringnot"));
+        System.out.println(notString2("stringnot"));
 
 
+    }
 
+    public static String notString2(String str) {
+        String strReturn = "";
+        if (str.startsWith("not")) {
+            strReturn = str.replaceFirst("not", "").concat("not");
+        } else {
+            strReturn = "not" + str;
+        }
+        return strReturn;
     }
 }
