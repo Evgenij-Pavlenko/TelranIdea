@@ -45,40 +45,40 @@ public class Table {
         this.height = heigt;
     }
 
-/*    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Table)) return false;
-        Table table = (Table) o;
-        return width == table.width &&
-                legth == table.legth &&
-                height == table.height &&
-                color.equals(table.color);
-    }
+/*    *//*    @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof Table)) return false;
+            Table table = (Table) o;
+            return width == table.width &&
+                    legth == table.legth &&
+                    height == table.height &&
+                    color.equals(table.color);
+        }
 
+        @Override
+        public int hashCode() {
+            return Objects.hash(color, width, legth, height);
+        }*/
     @Override
-    public int hashCode() {
-        return Objects.hash(color, width, legth, height);
-    }*/
-/*    @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (this == o) return true;
         if ((o == null) || !(o instanceof Table)) return false;
         Table table = (Table) o;
-        if(width != table.width) return false;
+        if (width != table.width) return false;
         if (legth != table.legth) return false;
-        if (height != table.height) return  false;
+        if (height != table.height) return false;
         return color != null ? color.equals(table.color) : table.color == null;
     }
 
     @Override
-    public int inthashCode(){
+    public int hashCode() {
         int result = color != null ? color.hashCode() : 0;
-        result = 31*result + width;
-        result = 31*result + legth;
-        result = 31*result + height;
+        result = 31 * result + width;
+        result = 31 * result + legth;
+        result = 31 * result + height;
         return result;
-    }*/
+    }
 
     @Override
     public String toString() {
