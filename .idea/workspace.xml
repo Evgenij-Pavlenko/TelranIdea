@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8a8f606a-28d3-43fc-b956-e07b5d975bbf" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1ZE6G6gnJvZ7dHNPIGX7iiZGlPk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="441" y="57" key="FileChooserDialogImpl" timestamp="1584392861623">
+      <screen x="0" y="0" width="1323" height="629" />
+    </state>
+    <state x="441" y="57" key="FileChooserDialogImpl/0.0.1323.629@0.0.1323.629" timestamp="1584392861623" />
+    <state x="44" y="0" key="new project wizard" timestamp="1584392873021">
+      <screen x="0" y="0" width="1323" height="629" />
+    </state>
+    <state x="44" y="0" key="new project wizard/0.0.1323.629@0.0.1323.629" timestamp="1584392873021" />
+  </component>
+</project>
