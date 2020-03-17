@@ -1,4 +1,10 @@
 package telran.data;
 
-public class Genre {
+public enum Genre {
+    DETECTIVE,
+    LOVE_STORY,
+    COMEDY,
+    THRILLER,
+    HORROR,
+    ADVENTURE
 }
