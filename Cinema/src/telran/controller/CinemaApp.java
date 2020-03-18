@@ -11,7 +11,7 @@ public class CinemaApp {
         Cinema cinema3 = new Cinema("Star");
 
         Shedule sheduleOst = new Shedule();
-
+        System.out.println(sheduleOst.getGenre().name());
         Shedule.getSheduleByGenre(Genre.ADVENTURE);
     }
 }
