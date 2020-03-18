@@ -2,6 +2,8 @@ package telran.dao;
 
 import telran.data.Film;
 
+import static telran.data.Cinema.isCinemaInArray;
+
 public class Schedule {
     private Film[] films;
     private int size;
@@ -37,4 +39,47 @@ public class Schedule {
             System.out.println(films[i]);
         }
     }
+
+    public void displayFilmByDate(String date) {
+        System.out.println(date + " you can see following films");
+        for (int i = 0; i < size; i++) {
+            if (films[i].getDate().equalsIgnoreCase(date)) {
+                System.out.println(films[i].getTitle() + " / " + films[i].getGenre());
+                films[i].displayCinema();
+                System.out.println("--------------------");
+            }
+        }
+    }
+    public void displayFilmByCinema(String name){
+        System.out.println("In cinema "+ name + " you can watch");
+        for (int i = 0; i < size ; i++) {
+            if (isCinemaInArray(films[i].getCinemas(), name)){
+                System.out.println(films[i].getTitle() + " / "+ films[i].getGenre() + " / "+
+                        films[i].getDate());
+                System.out.println("--------------------");
+            }
+
+        }
+    }
+    public int getIndexOfFilm(String title){
+        int indexOfFilm = -1;
+        for (int i = 0; i < size; i++) {
+            if (films[i].getTitle().equalsIgnoreCase(title)){
+                indexOfFilm = i;
+            }
+                    }
+        return indexOfFilm;
+    }
+    public void  displayCinemaByTitle(String title){
+        int index = getIndexOfFilm(title);
+        if (index < 0){
+            System.out.println("Sorry, the movie is not in schedule");
+        } else{
+            System.out.println("You can watch "+ title + " " + films[index].getDate() +
+                    " in following cinema ");
+            films[index].displayCinema();
+        }
+
+    }
+
 }
