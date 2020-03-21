@@ -68,4 +68,14 @@ public class Library {
         }
         System.out.println("Oldest Book is: " + book);
     }
+    public int searchBookByTitle(String title){
+        for (int j = 0; j < size ; j++) {
+            if (books[j].getTitle().equalsIgnoreCase(title)){
+                return j;
+            } else {
+                System.out.println("Sorry, Book by title not found");
+            }
+        }
+        return -1;
+    }
 }
