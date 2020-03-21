@@ -41,8 +41,9 @@ public class CinemaApp {
 //        schedule.displayFilmByDate("27.03");
         schedule.displayFilmByCinema("Astra");
         schedule.displayCinemaByTitle("Hail Ceaser"); // переделать в 1 метод в schedule
+        schedule.displayCinemaByTitle2("Hail Ceaser"); // переделать в 1 метод в schedule
         // добавить еще фильмы и сделать поиск по жанру
-
+        schedule.displayCinemaByGenre("drama");
 
     }
 }
