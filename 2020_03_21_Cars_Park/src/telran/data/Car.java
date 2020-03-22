@@ -33,7 +33,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car:" +brand + ", " +model + ", color: " + color + ", " +yearProdact + ". ";
+        return "Car: " +brand + ", " +model + ", color: " + color + ", " +yearProdact + ". ";
     }
 
     @Override
