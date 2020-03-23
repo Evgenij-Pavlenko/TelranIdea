@@ -39,6 +39,7 @@ public class Pet extends Animal {
                 '}';
     }
     public void play(){
-        System.out.println(nickName + "play");
+        System.out.println(nickName + " plays");
+        System.out.println(super.getAge());
     }
 }

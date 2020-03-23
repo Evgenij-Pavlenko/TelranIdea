@@ -44,6 +44,6 @@ public class Animal {
                 '}';
     }
     public void run(){
-        System.out.println(animalName + "run");
+        System.out.println(animalName + " run");
     }
 }

@@ -40,5 +40,6 @@ public class WildAnimal extends Animal {
     @Override
     public void run(){
         System.out.println(getAnimalName() + " running faster");
+        System.out.println(super.getAge() +" years old");
     }
 }
