@@ -29,5 +29,7 @@ public class CarFleetlApp {
         carFleet.displayAutoByColor("black");
         System.out.println("---------getBrandCount()--------");
         carFleet.getBrandCount("opel");
+        System.out.println("");
+
     }
 }
