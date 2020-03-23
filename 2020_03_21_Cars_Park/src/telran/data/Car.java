@@ -5,14 +5,14 @@ import java.util.Objects;
 public class Car {
     private String brand;
     private String model;
-    private String color;
-    private int yearProdact;
+    private Color color;
+    private int yearProduct;
 
-    public Car(String brand, String model, String color, int yearProdact) {
+    public Car(String brand, String model, Color color, int yearProduct) {
         this.brand = brand;
         this.model = model;
         this.color = color;
-        this.yearProdact = yearProdact;
+        this.yearProduct = yearProduct;
     }
 
     public String getBrand() {
@@ -23,17 +23,17 @@ public class Car {
         return model;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public int getYearProdact() {
-        return yearProdact;
+    public int getYearProduct() {
+        return yearProduct;
     }
 
     @Override
     public String toString() {
-        return "Car: " +brand + ", " +model + ", color: " + color + ", " +yearProdact + ". ";
+        return "Car: " +brand + ", " +model + ", color: " + color + ", " + yearProduct + ". ";
     }
 
     @Override
@@ -41,7 +41,7 @@ public class Car {
         if (this == o) return true;
         if (!(o instanceof Car)) return false;
         Car car = (Car) o;
-        return yearProdact == car.yearProdact &&
+        return yearProduct == car.yearProduct &&
                 brand.equals(car.brand) &&
                 model.equals(car.model) &&
                 color.equals(car.color);
@@ -49,6 +49,6 @@ public class Car {
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, model, color, yearProdact);
+        return Objects.hash(brand, model, color, yearProduct);
     }
 }

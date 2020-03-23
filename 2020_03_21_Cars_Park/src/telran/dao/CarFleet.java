@@ -1,8 +1,7 @@
 package telran.dao;
 
 import telran.data.Car;
-
-import java.util.Arrays;
+import telran.data.Color;
 
 public class CarFleet {
     private Car[] cars;
@@ -47,11 +46,11 @@ public class CarFleet {
         }
     }
 
-    public void displayAutoByColor(String color) {
+    public void displayAutoByColor(Color color) {
         System.out.println("Car with color \"" + color + "\" is:");
         boolean flag = true;
         for (int i = 0; i < size; i++) {
-            if (cars[i].getColor().equalsIgnoreCase(color)) {
+            if (cars[i].getColor().equals(color)) {
                 System.out.println(cars[i].toString());
                 flag = false;
             }
@@ -64,8 +63,8 @@ public class CarFleet {
         int date = 0;
         Car car = null;
         for (int i = 0; i < size; i++) {
-            if (cars[i].getYearProdact() > date) {
-                date = cars[i].getYearProdact();
+            if (cars[i].getYearProduct() > date) {
+                date = cars[i].getYearProduct();
                 car = cars[i];
             }
         }
@@ -73,18 +72,16 @@ public class CarFleet {
         return car;
     }
 
-    public void getBrandCount(String brand) {
-//        boolean flag = true;
+    public int getBrandCount(String brand) {
         int count = 0;
         for (int i = 0; i < size; i++) {
             if (cars[i].getBrand().equalsIgnoreCase(brand)) {
                 brand = cars[i].getBrand();
                 count++;
-//                flag = false;
             }
         }
         System.out.println(brand + " is: " + count);
-//        return count;
+        return count;
     }
 
 
