@@ -3,6 +3,8 @@ package telran.dao;
 import telran.data.Post;
 import telran.data.UserAdmin;
 
+import java.util.Scanner;
+
 public class Forum {
     private Post[] posts;
     private int size = 0;
@@ -45,7 +47,39 @@ public class Forum {
     //посчитать колво лайков по названию
     // колво постов по автору. Или посты по автору?
 
-    public boolean updatePost(int id, String newContext, UserAdmin userAdmin, String pas) {
+    public boolean checkPassword() {
+        Scanner scanner = new Scanner(System.in);
+        for (int i = 0; i < size; i++) {
+            if (posts[i].getAutor().getClass().getSimpleName().equalsIgnoreCase("UserAdmin")) {
+                UserAdmin admin = (UserAdmin) posts[i].getAutor();
+                System.out.println("Enter password, please");
+                String password = scanner.nextLine();
+                if (admin.getPassword().equals(password)){
+                    return true;
+                }
+                System.out.println("Wrong passwort");
+            }
+
+        }
+        return false;
+    }
+    public void updatePostByAdmin(int postID){
+        Scanner scanner = new Scanner(System.in);
+        if (checkPassword()){
+            for (int i = 0; i < size; i++) {
+                if (posts[i].getPostID()==postID){
+                    System.out.println("Enter new content");
+                    String newContent = scanner.nextLine();
+                    posts[i].setContent(newContent);
+                    System.out.println(postID + " content change to: " + posts[i].getContent());
+                }
+            }
+        } else{
+            System.out.println("acces is denied");
+        }
+    }
+
+    public boolean updatePostI(int id, String newContext, UserAdmin userAdmin, String pas) {
         for (int i = 0; i < size; i++) {
             if (posts[i].getPostID() == id) {
                 if (userAdmin.getPassword().equals(pas)) {
@@ -58,7 +92,8 @@ public class Forum {
         System.out.println("Post with ID " + id + " not found");
         return false;
     }
-    public boolean deletePost(int id, String newContext, UserAdmin userAdmin, String pas) {
+
+    public boolean deletePostI(int id, String newContext, UserAdmin userAdmin, String pas) {
         for (int i = 0; i < size; i++) {
             if (posts[i].getPostID() == id) {
                 if (userAdmin.getPassword().equals(pas)) {
@@ -72,25 +107,38 @@ public class Forum {
         System.out.println("Post with ID " + id + " not found");
         return false;
     }
-    public int countOfLikes(String title){
-        int count = 0;
+
+    public int getCountLikesI(String title) {
         for (int i = 0; i < size; i++) {
-            if (posts[i].getTitle().equalsIgnoreCase(title)){
-                count = posts[i].getLikes();
-                System.out.println("Count of likes in title " + posts[i].getTitle() + " is " + count);
+            if (posts[i].getTitle().equalsIgnoreCase(title)) {
+                System.out.println("Count of likes in title " + posts[i].getTitle() + " is " + posts[i].getLikes());
+                return posts[i].getLikes();
             }
         }
-
-        return count;
+        return 0;
     }
-    public int countOfPost(String autor){
+
+    public int countOfPostI(String autor) {
         int count = 0;
         for (int i = 0; i < size; i++) {
-            if (posts[i].getTitle().equalsIgnoreCase(autor)){
+            if (posts[i].getTitle().equalsIgnoreCase(autor)) {
                 count++;
             }
         }
         System.out.println(autor + " have a " + count + " posts.");
         return count;
+    }
+
+    //    последние посты
+    public Post[] getPostsByAutor(String autor, int numerOfPosts) {
+        Post[] autorsPosts = new Post[numerOfPosts];
+        int j = 0;
+        for (int i = size - 1; i >= 0; i--) {
+            if (posts[i].getAutor().getUserName().equalsIgnoreCase(autor) && j < numerOfPosts) {
+                autorsPosts[j] = posts[i];
+                j++;
+            }
+        }
+        return autorsPosts;
     }
 }
