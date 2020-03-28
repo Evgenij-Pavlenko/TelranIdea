@@ -11,13 +11,19 @@ public class Programmer extends Employee {
 
     @Override
     public String toString() {
-        return "Programmer{" + super.toString()+"}";
-    }
-    public void pay(){
-        System.out.println("I've got " + ((super.getExperience()<5)? getSalary(): getSalary()+3000));
+        return "Programmer{" + super.toString() + "}";
     }
 
-    public void doWork(){
-        System.out.println("I'm Programmer/ I write super project");
+    public void pay() {
+        System.out.println("I've got " + ((super.getExperience() < 5) ? getSalary() : getSalary() + 3000));
+    }
+
+//    public abstract void doWork(); //реализация идет от Емплой
+    public void doWork() {
+        System.out.println("I'm full stack Programmer/ I write super project");
+    }
+
+    public void codeGenerate(){
+        System.out.println("generate code");
     }
 }

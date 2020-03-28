@@ -3,7 +3,9 @@ package com.company;
 public class Main {
     public static void main(String[] args) {
 
-        Employee em1 = new Employee("Nick", 1000);
+//        Employee em1 = new Employee("Nick", 1000); // Employee ia abstract klass
+        Employee em1 = new Programmer("Nick", 1000, 5); // Employee ia abstract klass
+//        em1.
         System.out.println(em1);
         em1.doWork();
         em1.pay();
@@ -25,6 +27,14 @@ public class Main {
             employees[i].pay();
             employees[i].doWork();
         }
+        System.out.println("------------Programmer is an Employee--------------");
+        Employee prog2 = new Programmer("Den", 1000, 4);
+        prog2.doWork();
 
+
+        ((Programmer) prog2).codeGenerate();
+
+//        Programmer prog3 = (Programmer)em1;// error  - объект емплой
+        Programmer prog4 = (Programmer) prog2; // not error объект программер
     }
 }
