@@ -17,11 +17,12 @@ public abstract class Shape {
     }
 
     public abstract double getArea();
-    public static Shape findMaxShapeByArea(Shape[] shapes){
+
+    public static Shape findMaxShapeByArea(Shape[] shapes) {
         Shape max = null;
         double maxArea = 0;
-        for (Shape s: shapes){
-            if (s.getArea()>maxArea){
+        for (Shape s : shapes) {
+            if (s.getArea() > maxArea) {
                 maxArea = s.getArea();
                 max = s;
             }
@@ -29,25 +30,48 @@ public abstract class Shape {
         System.out.println("Max area is: " + maxArea);
         return max;
     }
-    public static Shape[] getByColor(Shape[] shapes, String color){
+
+    public static Shape[] getByColor(Shape[] shapes, String color) {
         int size = 0;
-        for (Shape s: shapes){
-            if (s.getColor().name().equalsIgnoreCase(color)){
+        for (Shape s : shapes) {
+            if (s.getColor().name().equalsIgnoreCase(color)) {
                 size++;
             }
         }
-        if (size<1){
+        if (size < 1) {
             System.out.println("Color not found");
             return null;
         }
         Shape[] shapeByColor = new Shape[size];
         int index = 0;
         for (int i = 0; i < shapes.length; i++) {
-            if (shapes[i].getColor().name().equalsIgnoreCase(color)){
+            if (shapes[i].getColor().name().equalsIgnoreCase(color)) {
                 shapeByColor[index] = shapes[i];
                 index++;
             }
         }
         return shapeByColor;
+    }
+
+    public static Shape[] findElementByClass(Shape[] shapes, String className) {
+        int size = 0;
+        int index = 0;
+        for (int i = 0; i < shapes.length; i++) {
+            if (shapes[i].getClass().getSimpleName().equalsIgnoreCase(className)) {
+                size++;
+            }
+        }
+        if (size < 1) {
+            System.out.println("Nothing found");
+            return null;
+        }
+        Shape[] shapeByClass = new Shape[size];
+        for (int i = 0; i < shapes.length; i++) {
+            if (shapes[i].getClass().getSimpleName().equalsIgnoreCase(className)) {
+                shapeByClass[index] = shapes[i];
+                index++;
+            }
+        }
+        return shapeByClass;
     }
 }
