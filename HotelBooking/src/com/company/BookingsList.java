@@ -1,10 +1,10 @@
 package com.company;
 
-public class BokkingsList {
+public class BookingsList {
     private Booking[] bookingsList;
     private int size = 0;
 
-    public BokkingsList(int capacity) {
+    public BookingsList(int capacity) {
         bookingsList = new Booking[capacity];
     }
 
@@ -12,7 +12,7 @@ public class BokkingsList {
         return size;
     }
 
-    public boolean Bookind(Booking booking) {
+    public boolean add(Booking booking) {
         if (size < bookingsList.length) {
             bookingsList[size] = booking;
             size++;
@@ -42,5 +42,15 @@ public class BokkingsList {
             System.out.println(bookingsList[i]);
 
         }
+    }
+    public void display(Person person){
+        boolean flag = true;
+        for (int i = 0; i < size; i++) {
+            if (bookingsList[i].person.equals(person)){
+                System.out.println(bookingsList[i]);
+                flag = false;
+            }
+        }
+        if (flag)  System.out.println("Person " + person + " hav'nt booking");
     }
 }
