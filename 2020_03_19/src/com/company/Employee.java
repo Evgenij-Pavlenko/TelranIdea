@@ -1,9 +1,10 @@
 package com.company;
 
-public class Employee {
+public abstract class Employee {
     private String name;
     private int salary;
     private int experience = 0;
+
 
     public Employee(String name, int salary, int experience) {
         this.name = name;
@@ -37,11 +38,7 @@ public class Employee {
                 '}';
     }
 
-    public void pay(){
-        System.out.println("I've got " + salary);
-    }
+    public abstract void pay();
 
-    public void doWork(){
-        System.out.println("Employee: do my work");
-    }
+    public abstract void doWork();
 }
