@@ -1,6 +1,6 @@
 package com.company;
 
-public class Room {
+public abstract class Room {
     private String number;
     private int capacity;
     private String service;

@@ -1,5 +1,8 @@
 package com.company;
 
+import static com.company.Date.dayBetweenDate;
+import static com.company.Date.isIntersect;
+
 public class Main {
     public static void main(String[] args) {
         //Person
@@ -9,11 +12,13 @@ public class Main {
         Person p1 = new Person("Ivan");
 //        System.out.println(p1);
 
-        Room r1 = new Room("1");
+        Room r1 = new StandartRoom("1");
 //        System.out.println(r1);
 
         Date d1 = new Date(1, 10, 2020);
         Date d2 = new Date(20, 10, 2020);
+        Date d3 = new Date(12, 4, 2020);
+        Date d4 = new Date(20, 5, 2020);
 
         Booking b1 = new Booking(p1, r1, d1, d2);
 //        System.out.println(b1);
@@ -58,6 +63,12 @@ public class Main {
         bookingsList.display(2);
         System.out.println("--------Display person's bookings-------------");
         bookingsList.display(p2);
+        System.out.println("-----------isIntersect -------------");
+        System.out.println(isIntersect(d1,d2,d3,d4));
+        System.out.println("-----------isRoomFrei -------------");
+        System.out.println(b1.isRoomFrei(bookingsList, r1, d2,d4));
+        System.out.println("-----------dayBetweenDate -------------");
+        System.out.println(dayBetweenDate(d1,d2));
 
 
     }

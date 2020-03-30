@@ -8,6 +8,10 @@ public class BookingsList {
         bookingsList = new Booking[capacity];
     }
 
+    public Booking[] getBookingsList() {
+        return bookingsList;
+    }
+
     public int getSize() {
         return size;
     }
@@ -46,7 +50,7 @@ public class BookingsList {
     public void display(Person person){
         boolean flag = true;
         for (int i = 0; i < size; i++) {
-            if (bookingsList[i].person.equals(person)){
+            if (bookingsList[i].getPerson().equals(person)){
                 System.out.println(bookingsList[i]);
                 flag = false;
             }
