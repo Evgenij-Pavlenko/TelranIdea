@@ -170,7 +170,7 @@ public class Date {
     public static boolean isIntersect(Date start1, Date end1, Date start2, Date end2) {
         boolean one = (comparatorDate(end1, start2) < 0) ? false : true;
         boolean two = (comparatorDate(end2, start1) < 0) ? false : true;
-        return one && two;
+        return one || two;
     }
 
     public static int dayBetweenDate(Date d1, Date d2) {
