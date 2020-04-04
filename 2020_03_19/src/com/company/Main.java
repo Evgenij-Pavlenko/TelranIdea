@@ -3,10 +3,10 @@ package com.company;
 public class Main {
     public static void main(String[] args) {
 
-        Employee em1 = new Employee("Nick", 1000);
-        System.out.println(em1);
-        em1.doWork();
-        em1.pay();
+//        Employee em1 = new Employee("Nick", 1000);
+//        System.out.println(em1);
+//        em1.doWork();
+//        em1.pay();
         System.out.println("---------------MANAGER--------------");
         Manager manager1 = new Manager("Erick", 2000);
         System.out.println(manager1);
