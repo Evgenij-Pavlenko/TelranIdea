@@ -6,4 +6,9 @@ public class Newspaper implements Printable {
     public void print() {
         System.out.println("Newspaper");
     }
+
+    @Override
+    public void print2() {
+        System.out.println("Morgen Post");
+    }
 }
