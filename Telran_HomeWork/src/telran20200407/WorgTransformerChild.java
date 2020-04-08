@@ -22,4 +22,19 @@ public class WorgTransformerChild extends WordTransformer {
             return temp.trim();
         }
     }
+
+    public static String transformErstLetter(String input, boolean b, String start) { // kann char make
+                                                                                        
+        String[] str = input.split(" ");
+        String temp = "";
+        for (int i = 0; i < str.length; i++) {
+            //Kann with str.IgnoreCase make
+            if (str[i].startsWith(start)) {
+                temp += str[i].replaceAll(".", "*") + " ";
+            } else {
+                temp += str[i] + " ";
+            }
+        }
+        return transform4(temp, b);
+    }
 }
