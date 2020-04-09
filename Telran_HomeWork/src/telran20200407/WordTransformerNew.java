@@ -35,12 +35,12 @@ public class WordTransformerNew {
     }
 
     //этот же метод заменял слова, начинающиеся на 'a' на звездочку. То есть 'aBcdE' -> '*****'
-    public static String transformStar(String input, String start) { // kann char make
+    public static String transformAToStar(String input) { // kann char make
         String[] str = input.split(" ");
         String temp = "";
         for (String s : str) {
             //Kann with str.IgnoreCase make
-            if (s.startsWith(start)) {
+            if (s.startsWith("a")) {
                 temp += s.replaceAll(".", "*") + " ";
             } else {
                 temp += s + " ";
@@ -52,24 +52,13 @@ public class WordTransformerNew {
     public static String transform(String input){
         return transform3Letter(input);
     }
+
+
+     // universal method
     public static String transform(String input, int param) {
-        if (param == 3) {
-            return transform3Letter(input);
-        } else if (param == 4) {
-            return transform4Letter(input);
-        }
-        return "Wrong Param";
-    }
-
-    public static String transform(String input, String start) {
-        return transformStar(input, start);
-    }
-
-    // universal method
-    public static String transform(String input, int param, String start) {
         switch (param) {
             case 0:
-                return transformStar(input, start);
+                return transformAToStar(input);
             case 3:
                 return transform3Letter(input);
             case 4:
