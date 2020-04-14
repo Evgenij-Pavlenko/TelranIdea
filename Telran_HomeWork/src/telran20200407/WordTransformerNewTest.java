@@ -51,7 +51,7 @@ public class WordTransformerNewTest {
      */
     @Test
     public void testWordTransformerNew4() {
-        test = transform("aAa bcDE ekLm Iii", "a");
+        test = transform("aAa bcDE ekLm Iii", 0);
         assertEquals("*** bcDE ekLm Iii", test);
     }
 
@@ -60,7 +60,7 @@ public class WordTransformerNewTest {
      */
     @Test
     public void testWordTransformerNew5() {
-        String test = transform("aAa bcDE ekLm Iii", "a");
+        String test = transform("aAa bcDE ekLm Iii", 0);
         assertEquals("*** bcDE ekLm Iii", test);
     }
 }

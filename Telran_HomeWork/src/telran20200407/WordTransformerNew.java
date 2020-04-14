@@ -49,12 +49,12 @@ public class WordTransformerNew {
         return temp.trim();
     }
 
-    public static String transform(String input){
+    public static String transform(String input) {
         return transform3Letter(input);
     }
 
 
-     // universal method
+    // universal method
     public static String transform(String input, int param) {
         switch (param) {
             case 0:
