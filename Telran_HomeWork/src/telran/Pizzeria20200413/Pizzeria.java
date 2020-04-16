@@ -19,7 +19,8 @@ public class Pizzeria {
     private static void pizzaList(PizzaInterface[] pizzas) {
         for (PizzaInterface p : pizzas) {
             p.printPizza();
-            System.out.println("Preice is: " + p.getPrice() + " EUR(€)");
+            System.out.printf("Preice is: %.2f EUR(€)\n", p.getPrice());
+//            System.out.println("Preice is: " + p.getPrice() + " EUR(€)");
         }
     }
 }
