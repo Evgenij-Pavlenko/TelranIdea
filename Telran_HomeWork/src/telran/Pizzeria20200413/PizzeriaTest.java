@@ -10,12 +10,12 @@ public class PizzeriaTest {
     public void testPizzeria() {
 
         double actual = p.getPrice();
-        double expekted = 3.0;
-        assertEquals(expekted, actual, 0.0);
+        double expected = 3.0;
+        assertEquals(expected, actual, 0.0);
     }
     @Test
     public void testPizzeria1() {
-        PizzaInterface pt = new TomatDecorator(p);
+        PizzaInterface pt = new TomatoDecorator(p);
         double actual = pt.getPrice();
         double expekted = 4.0;
         assertEquals(expekted, actual, 0.0);
@@ -29,7 +29,7 @@ public class PizzeriaTest {
     }
      @Test
     public void testPizzeria3() {
-        PizzaInterface ptp = new TomatDecorator(new PillsDecorator(p));
+        PizzaInterface ptp = new TomatoDecorator(new PillsDecorator(p));
         double actual = ptp.getPrice();
         double expekted = 5.5;
         assertEquals(expekted, actual, 0.0);

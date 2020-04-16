@@ -1,10 +1,10 @@
 package telran.Pizzeria20200413;
 
-public class TomatDecorator implements PizzaInterface {
+public class TomatoDecorator implements PizzaInterface {
     private PizzaInterface pizzaInterface;
     private final static double TOMAT_PRISE = 1.0;
 
-    public TomatDecorator(PizzaInterface pizzaInterface) {
+    public TomatoDecorator(PizzaInterface pizzaInterface) {
         this.pizzaInterface = pizzaInterface;
     }
 

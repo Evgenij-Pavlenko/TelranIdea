@@ -4,11 +4,11 @@ public class Pizzeria {
     public static void main(String[] args) {
         PizzaInterface pizza = new PizzaBaseImpl();
 
-        PizzaInterface pt = new TomatDecorator(pizza);
+        PizzaInterface pt = new TomatoDecorator(pizza);
 
         PizzaInterface pp = new PillsDecorator(pizza);
 
-        PizzaInterface ptp = new TomatDecorator(new PillsDecorator(pizza));
+        PizzaInterface ptp = new TomatoDecorator(new PillsDecorator(pizza));
 
         PizzaInterface[] pizzas = new PizzaInterface[]{pizza, pt, pp, ptp};
 
