@@ -7,7 +7,7 @@ public class GuessNumberGame {
     //there are 3 attempts
     //
     // Pattern State, но как-то коряво(
-    int numberPC = (int) (Math.random() * 10);
+    int numberPC = (int) (Math.random() * 11);
     int attempt = 3;
     Scanner sc = new Scanner(System.in);
 
@@ -41,6 +41,6 @@ public class GuessNumberGame {
     }
     // это лишнее - можно сразу if(a>b) писать
     public boolean compareTwoInts(int a, int b) {
-        return a > b ? true : false;
+        return a > b;
     }
 }
