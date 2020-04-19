@@ -9,6 +9,7 @@ public class GuessNumberGame {
     // Pattern State, но как-то коряво(
     int numberPC = (int) (Math.random() * 11);
     int attempt = 3;
+    int enteredInt;
     Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -26,7 +27,7 @@ public class GuessNumberGame {
     public void enterNumber() {
         while (attempt > 0) {
             System.out.printf("You have %d attempts:\n", attempt);
-            int enteredInt = sc.nextInt();
+            enteredInt = sc.nextInt();
             if (enteredInt == numberPC) {
                 System.out.println("Bingo!");
                 break;
@@ -37,6 +38,11 @@ public class GuessNumberGame {
                 new SmallerState().compare(enteredInt);
             }
             attempt--;
+        }
+        if (enteredInt == numberPC) {
+            System.out.println("You win!");
+        } else{
+            System.out.println("You lose (");
         }
     }
     // это лишнее - можно сразу if(a>b) писать
