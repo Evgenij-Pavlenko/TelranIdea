@@ -7,46 +7,71 @@ public class GuessNumberGame {
     //there are 3 attempts
     //
     // Pattern State, но как-то коряво(
-    int numberPC = (int) (Math.random() * 11);
-    int attempt = 3;
-    int enteredInt;
-    Scanner sc = new Scanner(System.in);
+    private int attempt;
+    private int numberPC;
+    private GameMessenger gameMessenger;
+    private NumberReader numberReader;
+    private int enteredInt;
 
-    public static void main(String[] args) {
-        GuessNumberGame m = new GuessNumberGame();
-
-        m.methodHello();
-        m.enterNumber();
-
+    public GuessNumberGame(int attempt, int numberPC, GameMessenger gameMessenger, NumberReader numberReader) {
+        this.attempt = attempt;
+        this.numberPC = numberPC;
+        this.gameMessenger = gameMessenger;
+        this.numberReader = numberReader;
     }
 
-    public void methodHello() {
-        System.out.println("Hello, enter number 1..10.");
+
+
+    public void play() {
+        doHello();
+//        boolean guess = guessNumber(); //открытое (package) объявление переменной, лучше сразу в метод вставить?
+        showGameEnd(guessNumber());
     }
 
-    public void enterNumber() {
-        while (attempt > 0) {
-            System.out.printf("You have %d attempts:\n", attempt);
-            enteredInt = sc.nextInt();
+    private boolean guessNumber() {
+        while (attempt > 0 ) {
+            doAttempts(attempt);
+            enteredInt = numberReader.read();
             if (enteredInt == numberPC) {
-                System.out.println("Bingo!");
-                break;
-            }
-            if (compareTwoInts(enteredInt, numberPC)) {
-                new LargerState().compare(enteredInt);
-            } else {
-                new SmallerState().compare(enteredInt);
+                return true;
             }
             attempt--;
+            compareNumber();
         }
-        if (enteredInt == numberPC) {
-            System.out.println("You win!");
-        } else{
-            System.out.println("You lose (");
+        return false;
+    }
+
+    private void showGameEnd(boolean gues) {
+        if (gues) {
+            doWon();
+        } else {
+            doLose();
         }
     }
-    // это лишнее - можно сразу if(a>b) писать
-    public boolean compareTwoInts(int a, int b) {
-        return a > b;
+
+    private void doHello() {
+        gameMessenger.print("Hello, enter number 1..10.");
     }
+
+    private void doAttempts(int attempt) {
+        gameMessenger.print("You have " + attempt + " attempts:");
+
+    }
+
+    private void doWon() {
+        gameMessenger.print("You won, lucky!");
+    }
+
+    private void doLose() {
+        gameMessenger.print("You lose :(");
+    }
+
+    private void compareNumber() {
+        if (enteredInt > numberPC) {
+            new LargerState().compare(enteredInt);
+        } else {
+            new SmallerState().compare(enteredInt);
+        }
+    }
+
 }

@@ -6,20 +6,34 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class GuestNumberGameTest {
-    GuessNumberGame gng = new GuessNumberGame();
+    //test input
 
+//    почему так не работает? должно ж подхватить метод из GameMessenger() и CorrectNumberReader()
+
+//    GameMessenger gm = new CorrectMessenger();
+//    NumberReader nr = new CorrectNumberReader();
+
+    CorrectMessenger gm = new CorrectMessenger();
+    NumberReader nr = new CorrectNumberReader();
+
+    //run test
     @Test
-    public void testGuestNumberGame1(){
-        int a = 10;
-        int b = 5;
-        assertTrue(gng.compareTwoInts(a,b));
+    public void testGuessNumberGame1() {
+        int attempt = 3;
+        int numberPC = 5; // Wright number is 5
+        GuessNumberGame gn = new GuessNumberGame(attempt, numberPC, gm, nr);
+        gn.play();
+        //check output
+        assertTrue(gm.isCorrect());
     }
 
     @Test
-    public void testGuestNumberGame2(){
-        int a = 5;
-        int b = 10;
-        assertFalse(gng.compareTwoInts(a,b));
+    public void testGuessNumberGame2() {
+        int attempt = 3;
+        int numberPC = 3; // Wright number is 5
+        GuessNumberGame gn = new GuessNumberGame(attempt, numberPC, gm, nr);
+        gn.play();
+        //check output
+        assertFalse(gm.isCorrect());
     }
-
 }
