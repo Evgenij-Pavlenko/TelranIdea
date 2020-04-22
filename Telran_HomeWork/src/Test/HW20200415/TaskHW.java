@@ -22,16 +22,37 @@ public class TaskHW {
             char[] ch2 = s2.toCharArray();
             Arrays.sort(ch1);
             Arrays.sort(ch2);
+            int count = 0;
             // бред какойто. Если использовать цикл в цикле - непонятно, что делать с двойной буквой
             //есть какой-то метод у String еще? типа StringUtils.containsOnly()
-           if (ch1.length>ch2.length){
-               s1 = String.valueOf(ch1);
-               s2 = String.valueOf(ch2);
-           }else{
-               s1 = String.valueOf(ch2);
-               s2 = String.valueOf(ch1);
-           }
-            return s1.contains(s2);
+            if (ch1.length > ch2.length) {
+                for (int i = 0; i < ch2.length; i++) {
+                    if (ch2[i] == ch1[i]) {
+                        count++;
+                    }else{
+                        if (ch2[i]==ch1[i+1]){
+                            count++;
+                        }
+                    }
+                    if (count==ch2.length-1){
+                        return true;
+                    }
+                }
+            } else {
+                for (int i = 0; i < ch1.length; i++) {
+                    if (ch1[i] == ch2[i]) {
+                        count++;
+                    }else{
+                        if (ch1[i]==ch2[i+1]){
+                            count++;
+                        }
+                    }
+                    if (count==ch1.length-1){
+                        return true;
+                    }
+                }
+            }
+
         }
         return false;
     }
