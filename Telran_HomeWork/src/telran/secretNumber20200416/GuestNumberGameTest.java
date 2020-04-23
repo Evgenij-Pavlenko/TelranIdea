@@ -8,12 +8,13 @@ import static org.junit.Assert.assertTrue;
 public class GuestNumberGameTest {
     //test input
 
-    GameMessenger gm = new CorrectMessenger();
-    NumberReader nr = new CorrectNumberReader();
-    // починил ) добавил в interface GameMessenger - default method isCorrect()
-
-//    CorrectMessenger gm = new CorrectMessenger();
+//    GameMessenger gm = new CorrectMessenger();
 //    NumberReader nr = new CorrectNumberReader();
+    // починил ) добавил в interface GameMessenger - default method isCorrect()
+//    это бред был - мы же просто тестируем - не нужно лезть в интерфейс самого приложения
+
+    CorrectMessenger gm = new CorrectMessenger();
+    NumberReader nr = new CorrectNumberReader();
 
     //run test
     @Test
