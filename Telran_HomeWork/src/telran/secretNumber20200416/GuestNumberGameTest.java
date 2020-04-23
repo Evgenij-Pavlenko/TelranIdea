@@ -8,13 +8,12 @@ import static org.junit.Assert.assertTrue;
 public class GuestNumberGameTest {
     //test input
 
-//    почему так не работает? должно ж подхватить метод из GameMessenger() и CorrectNumberReader()
-
-//    GameMessenger gm = new CorrectMessenger();
-//    NumberReader nr = new CorrectNumberReader();
-
-    CorrectMessenger gm = new CorrectMessenger();
+    GameMessenger gm = new CorrectMessenger();
     NumberReader nr = new CorrectNumberReader();
+    // починил ) добавил в interface GameMessenger - default method isCorrect()
+
+//    CorrectMessenger gm = new CorrectMessenger();
+//    NumberReader nr = new CorrectNumberReader();
 
     //run test
     @Test
