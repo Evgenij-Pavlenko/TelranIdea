@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ConsoleNumberReader implements NumberReader {
 
-    Scanner scanner = new Scanner(System.in);
+   private Scanner scanner = new Scanner(System.in);
 
     @Override
     public int read() {
