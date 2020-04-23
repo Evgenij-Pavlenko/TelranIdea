@@ -45,14 +45,14 @@ public class CustomArrayList<E> implements CustomList<E> {
 
         Object o = sourse[index];
 
-        System.arraycopy(sourse, index + 1, sourse, index, size - index - 1);
-//        Object[]newSource = new Object[sourse.length];
-//        for (int i = 0; i <newSource.length ; i++) {
-//            if (i<index) {
-//                newSource[i] = sourse[i];
-//            }
+        System.arraycopy(sourse, index + 1, sourse, index, size - index);
+
+        // через for тоже в тот же массив сохранять, только начиная с index
+        //исправил
+//        Object[]newSource = new Object[sourse.length-1];
+//        for (int i = 0; i <sourse.length-1 ; i++) {
 //            if (i>=index){
-//                newSource[i]=sourse[i+1];
+//                sourse[i]=sourse[i+1];
 //            }
 //        }
 
@@ -60,12 +60,17 @@ public class CustomArrayList<E> implements CustomList<E> {
         return (E) o;
     }
 
+    // and test works
     @Override
     public boolean remove(E e) {
-        return false;
-    }
 
-    public boolean removeByElement(E i) {
+        for (int i = 0, count = 0; i < size; i++) {
+            if (sourse[i].equals(e)) {
+                System.arraycopy(sourse, i + 1, sourse, i, size - i);
+                size--;
+                return true;
+            }
+        }
         return false;
     }
 }

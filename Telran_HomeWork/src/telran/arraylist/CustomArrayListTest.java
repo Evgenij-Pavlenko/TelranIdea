@@ -2,7 +2,7 @@ package telran.arraylist;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class CustomArrayListTest {
 
@@ -51,6 +51,37 @@ public class CustomArrayListTest {
         assertEquals(3, expectedDeletedItem.intValue());
     }
 
+    @Test
+    public void testRemoveByElementTrue() {
+        String[] input = {"aa", "bb", "cc", "dd"};
+        CustomArrayList<String> al = new CustomArrayList<>();
+        for (String a : input) {
+            al.append(a);
+        }
+        boolean expectedDeletedItem = al.remove("cc");
+        String[] expected = {"aa", "bb", "dd"};
+        for (int i = 0; i < expected.length; i++) {
+            assertEquals(expected[i], al.get(i));
+        }
+        assertEquals(3, al.size());
+        assertTrue(expectedDeletedItem);
+    }
+
+    @Test
+    public void testRemoveByElementFalse() {
+        String[] input = {"aa", "bb", "cc", "dd"};
+        CustomArrayList<String> al = new CustomArrayList<>();
+        for (String a : input) {
+            al.append(a);
+        }
+        boolean expectedDeletedItem = al.remove("ff");
+        String[] expected = {"aa", "bb", "cc", "dd"};
+        for (int i = 0; i < expected.length; i++) {
+            assertEquals(expected[i], al.get(i));
+        }
+        assertEquals(4, al.size());
+        assertFalse(expectedDeletedItem);
+    }
 
 
 }
