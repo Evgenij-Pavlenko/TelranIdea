@@ -46,11 +46,34 @@ public class CustomLinkedList<E> implements CustomList<E> {
 
     @Override
     public E removeById(int index) {
-        return null;
+        if (index >= size || index < 0) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        Node node = getNode(index);
+        E ret = (E) node.value;
+        deleteElement(node);
+        return ret;
+//        return (E)node.value; - и так работает, если GK не почистит) - какой из вариантов возврата правильнее?
+    }
+
+    // this method repeat 2 time:
+    private boolean deleteElement(Node node) {
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+        size--;
+        return true;
     }
 
     @Override
     public boolean remove(E o) {
+        Node node = first;
+        for (int i = 0; i < size; i++) {
+            if (o.equals(node.value)) {
+                return deleteElement(node);
+            }
+            node = node.next;
+        }
         return false;
     }
 
