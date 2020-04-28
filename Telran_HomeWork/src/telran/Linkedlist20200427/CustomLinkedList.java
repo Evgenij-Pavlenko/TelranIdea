@@ -51,10 +51,8 @@ public class CustomLinkedList<E> implements CustomList<E> {
         }
 
         Node node = getNode(index);
-        E ret = (E) node.value;
         deleteElement(node);
-        return ret;
-//        return (E)node.value; - и так работает, если GK не почистит) - какой из вариантов возврата правильнее?
+        return (E)node.value;
     }
 
     // this method repeat 2 time:
