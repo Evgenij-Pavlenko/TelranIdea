@@ -70,6 +70,10 @@ public class Main {
         System.out.println("-----------dayBetweenDate -------------");
         System.out.println(dayBetweenDate(d1,d2));
 
-
+        System.out.println("---------------test list------------");
+BookingList2 bookingList2 = new BookingList2();
+bookingList2.add(b1);
+bookingList2.add(b2);
+bookingList2.print();
     }
 }
