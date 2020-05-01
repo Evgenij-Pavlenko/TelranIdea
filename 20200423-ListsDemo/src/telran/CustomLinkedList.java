@@ -46,10 +46,22 @@ public class CustomLinkedList<E> implements CustomList<E> {
         }
         return ret;
     }
-
+    // this method repeat 2 time:
+    private boolean deleteElement(Node node) {
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+        size--;
+        return true;
+    }
     @Override
     public E removeById(int index) {
-        return null;
+        if (index >= size || index < 0) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        Node node = getNode(index);
+        deleteElement(node);
+        return (E)node.value;
     }
 
     @Override
