@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Objects;
+
 import static com.company.Date.isIntersect;
 
 public class Booking {
@@ -39,6 +41,22 @@ public class Booking {
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Booking booking = (Booking) o;
+        return Objects.equals(person, booking.person) &&
+                Objects.equals(room, booking.room) &&
+                Objects.equals(startDate, booking.startDate) &&
+                Objects.equals(endDate, booking.endDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(person, room, startDate, endDate);
     }
 
     public boolean isRoomFrei(BookingsList bList, Room room, Date dStart, Date dEnd) {
