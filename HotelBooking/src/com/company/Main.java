@@ -78,7 +78,9 @@ BookingList2 bookingList2 = new BookingList2();
 bookingList2.add(b1);
 bookingList2.add(b2);
 bookingList2.print();
+
         System.out.println(bookingList2.get(1));
         System.out.println(bookingList2.remove(b1));
+
     }
 }

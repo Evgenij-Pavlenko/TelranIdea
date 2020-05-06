@@ -1,6 +1,6 @@
 package com.company;
 
-public class Employee {
+public abstract class Employee {
     private String name;
     private int salary;
     private int experience = 0;
