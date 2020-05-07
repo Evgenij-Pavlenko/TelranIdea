@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Random;
 
-public class Date {
+public class Date implements Comparable<Date> {
     private int day;
     private int month;
     private int year;
@@ -118,6 +118,7 @@ public class Date {
         return min + rnd.nextInt(max - min + 1);
     }
 
+    @Override
     public int compareTo(Date date) {
         if (this.year != date.year) {
             if (this.year > date.year) {
