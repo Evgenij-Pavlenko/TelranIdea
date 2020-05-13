@@ -1,26 +1,12 @@
 package com.company;
 
+import java.util.Objects;
+
 public class Person {
     private String name;
-    int age;
+    private int age;
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Person(String name) {
+    Person (String name){
         this.name = name;
     }
 
@@ -29,10 +15,28 @@ public class Person {
         this.age = age;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return age == person.age &&
+                Objects.equals(name, person.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age);
+    }
+
     @Override
     public String toString() {
         return "Person{" +
-                "name='" + name + '\'' + ((age != 0) ? age : " ") +
+                "name='" + name + '\'' + ((age!=0)?age:"" )+
                 '}';
     }
 }
