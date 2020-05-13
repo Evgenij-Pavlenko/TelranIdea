@@ -13,12 +13,12 @@ public class Main {
     public static Map<String, Integer> wordCount(List<String> strings) {
         Map<String, Integer> map = new HashMap<>();
         for (String s : strings) {
-            
-            if (map.containsKey(s)) {
-                map.put(s, map.get(s) + 1);
-            } else {
-                map.put(s, 1);
-            }
+            map.put(s, Collections.frequency(strings, s));
+//            if (map.containsKey(s)) {
+//                map.put(s, map.get(s) + 1);
+//            } else {
+//                map.put(s, 1);
+//            }
         }
         //написать на основе frequency
         return map;
