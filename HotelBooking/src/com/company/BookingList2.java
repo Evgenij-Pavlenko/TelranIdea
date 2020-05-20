@@ -1,6 +1,7 @@
 package com.company;
 
 public class BookingList2 {
+
     private Node first = null;
     private Node last = null;
     private int size = 0;
@@ -13,6 +14,7 @@ public class BookingList2 {
             node.setNext(null);
             first = node;
         } else {
+
             last.setNext(node);
             node.setNext(null);
             node.setPrev(last);
@@ -62,6 +64,7 @@ public class BookingList2 {
 
         Node node = first;
         while (node != null) {
+
             System.out.println(node.getBooking());
             node = node.getNext();
         }
@@ -71,7 +74,9 @@ public class BookingList2 {
 
 }
 
+
 class Node {
+
     private Booking booking = null;
     private Node prev = null;
     private Node next = null;
