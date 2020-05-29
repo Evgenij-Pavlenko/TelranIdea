@@ -12,7 +12,15 @@ buildVocMap(list);
     }
 
     public List<String> getAnagrams(String word) {
+        List<String> anagrams = new ArrayList<>();
         String sortedWord = sortWord(word);
+//        for (String wordVoc: list){
+//            String sortedWordVoc = sortWord(word);
+//            if (sortedWord.equals(sortedWordVoc)){
+//                anagrams.add(wordVoc);
+//            }
+//        }
+//        return anagrams;
         return map.get(sortedWord);
     }
 
