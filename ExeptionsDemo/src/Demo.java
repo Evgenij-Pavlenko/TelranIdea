@@ -8,21 +8,25 @@ public class Demo {
 //            System.out.println("Result is unknown( probably division by zero)");
 //        }
 
-        String input = "abcdef";
-    //    try {
+        String input = "abc";
+        try {
             String resultString = processString(input); // C RuntimeExeption - без try/catch
             System.out.println("The string in processed: " + resultString);
-//        } catch (StringIsToShortExeption ex) { // Если без RuntimeExeption
-//            System.out.println("A "+ex.getMessage());
-//        } catch (StringIsToLongExeption ex) {
-//            System.out.println("B " + ex.getMessage());
-//        }
+        } catch (StringIsToShortExeption ex) { // Если без RuntimeExeption
+            System.out.println("A "+ex.getMessage());
+        } catch (StringIsToLongExeption ex) {
+            System.out.println("B " + ex.getMessage());
+        } finally {
+            System.out.println("Cleaning up things!");
+        }
 
         System.out.println("The programm is finished!");
     }
 
     public static String processString(String input) throws StringIsToLongExeption, StringIsToShortExeption{
-        if (input.length()>3) {
+        if (input.length()==3) {
+            return input.toUpperCase();
+        }else if(input.length()>3){
             throw new StringIsToLongExeption("String is to long: " + input.length());
         } else {
             throw new StringIsToShortExeption("String is to short: " + input.length());
