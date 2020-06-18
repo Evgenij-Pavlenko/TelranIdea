@@ -14,4 +14,11 @@ public class ValidatorTest {
         Customer customer = new Customer("Ivan", 15, new BankAccount("DE12121212121212"));
         Validator.validateCustomer(customer);
     }
+
+    @Test
+    public void testValidateCustomer2() throws Exception {
+        Customer customer = new Customer("Ivan", 25, new BankAccount("DE12121212121212"));
+        Validator.validateCustomer(customer);
+    }
+
 }
