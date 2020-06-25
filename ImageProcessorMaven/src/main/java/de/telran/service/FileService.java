@@ -23,7 +23,7 @@ public class FileService {
 
         try {
             ImageIO.write(image, "jpg",
-                    new File("c:\\Users\\evgen\\Downloads\\images\\" + image.hashCode() + ".jpg"));
+                    new File("c:\\Users\\evgen\\Downloads\\images\\img_" + image.hashCode() + ".jpg"));
 
         } catch (Exception ex) {
             ex.printStackTrace();

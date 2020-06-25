@@ -6,12 +6,12 @@ import java.awt.image.BufferedImage;
 public class GrayscaleImageAction implements ImageAction {
     @Override
     public BufferedImage doAction(BufferedImage source) {
-        System.out.println("Grayscale an Image");
+        System.out.println("Grayscale an image");
 
-        return doGrayscale(source);
+        return doGrayScale(source);
     }
 
-    public BufferedImage doGrayscale(BufferedImage source) {
+    public BufferedImage doGrayScale(BufferedImage source) {
         // Создаем новое пустое изображение, такого же размера
         BufferedImage result = new BufferedImage(source.getWidth(), source.getHeight(), source.getType());
         // Делаем двойной цикл, чтобы обработать каждый пиксель

@@ -7,6 +7,11 @@ public class DownloadedImage {
     private boolean isSuccessfull;
     private ImageDescriptor imageDescriptor;
 
+    public DownloadedImage(BufferedImage image, boolean status, ImageDescriptor imageDescriptor) {
+        this.image = image;
+        this.isSuccessfull = status;
+        this.imageDescriptor = imageDescriptor;
+    }
     public BufferedImage getImage() {
         return image;
     }
@@ -15,10 +20,8 @@ public class DownloadedImage {
         return isSuccessfull;
     }
 
-    public DownloadedImage(BufferedImage image, boolean status, ImageDescriptor imageDescriptor) {
-        this.image = image;
-        this.isSuccessfull = status;
-        this.imageDescriptor = imageDescriptor;
+    public ImageDescriptor getImageDescriptor() {
+        return imageDescriptor;
     }
 
     @Override

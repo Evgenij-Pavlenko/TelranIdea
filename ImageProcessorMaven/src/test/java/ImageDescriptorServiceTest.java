@@ -24,7 +24,7 @@ public class ImageDescriptorServiceTest {
         //execute testing code
 
         ImageDescriptorService service = new ImageDescriptorService(fileService);
-        List<ImageDescriptor> imageDescriptors = service.getImageDescriptor("testFile.txt");
+        List<ImageDescriptor> imageDescriptors = service.getImageDescriptors("testFile.txt");
         //assert result
         assertTrue(imageDescriptors.isEmpty());
         verify(fileService, times(1)).loadStringsFromFile("testFile.txt");
@@ -38,7 +38,7 @@ public class ImageDescriptorServiceTest {
         //execute testing code
 
         ImageDescriptorService service = new ImageDescriptorService(fileService);
-        List<ImageDescriptor> imageDescriptors = service.getImageDescriptor("testFile.txt");
+        List<ImageDescriptor> imageDescriptors = service.getImageDescriptors("testFile.txt");
         //assert result
         System.out.println(imageDescriptors);
         assertFalse(imageDescriptors.isEmpty());

@@ -14,7 +14,7 @@ public class ImageDescriptorService {
         this.fileService = fileService;
     }
 
-    public List<ImageDescriptor> getImageDescriptor(String fileName) {
+    public List<ImageDescriptor> getImageDescriptors(String fileName) {
         return fileService.loadStringsFromFile(fileName)
                 .stream()
                 .map(s -> stringToImageDescriptor(s))

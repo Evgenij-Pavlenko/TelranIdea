@@ -11,6 +11,7 @@ import de.telran.service.ImageService;
 import java.awt.image.BufferedImage;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static de.telran.service.CreateOriginName.createOriginNameFromUrl;
 
@@ -20,37 +21,33 @@ public class ImageProcessor {
     private FileService fileService;
     private ImageService imageService;
 
-    //private DownloadService downloadService;
-    //private ImageService imageService;
     //...
     public ImageProcessor(ImageDescriptorService imageDescriptorService,
                           DownloadService downloadService,
-                          FileService fileService,
-                          ImageService imageService) {
+                          ImageService imageService,
+                          FileService fileService) {
         this.imageDescriptorService = imageDescriptorService;
         this.downloadService = downloadService;
-        this.fileService = fileService;
         this.imageService = imageService;
+        this.fileService = fileService;
     }
 
-    public void doProcessimg(String fileName) {
-        List<ImageDescriptor> imageDescriptors = imageDescriptorService.getImageDescriptor(fileName);
+    public void doProcessing(String fileName) {
+        List<ImageDescriptor> imageDescriptors = imageDescriptorService.getImageDescriptors(fileName);
+
+//        List<String> urls = imageDescriptors.stream().map(d -> d.getImageUrlName()).collect(Collectors.toList());
 
         List<DownloadedImage> downloadedImages = downloadService.downloadImages(imageDescriptors);
         List<DownloadedImage> successfullDownloadImages = downloadedImages.stream()
                 .filter(DownloadedImage::isSuccessfull)
                 .collect(Collectors.toList());
 
-        List<BufferedImage> processedImages = successfullDownloadImages.
-                stream()
-                .map(i -> imageService.processImage(i.getImage(), i.ge);
-//        successfullDownloadImage.forEach(i -> fileService.saveImageAsFile(i));
+        List<BufferedImage> processedImages = successfullDownloadImages
+                .stream()
+                .map(i -> imageService.processImage(i.getImage(), i.getImageDescriptor().getActionName()))
+                .collect(Collectors.toList());
+        processedImages.forEach(i -> fileService.saveImageAsFile(i));
 
-        processedImages.forEach(System.out::println);
-
-        // call download service
-        // call image service
-        //
     }
 
     public static void main(String[] args) {
@@ -59,8 +56,9 @@ public class ImageProcessor {
         ImageDescriptorService imageDescriptorService = new ImageDescriptorService(fileService);
         DownloadService downloadService = new DownloadService();
         ImageService imageService = new ImageService(new ImageActionFactory());
-        ImageProcessor processor = new ImageProcessor(imageDescriptorService, downloadService, fileService, imageService);
-        processor.doProcessimg(fileName);
+        ImageProcessor processor = new ImageProcessor(imageDescriptorService,
+                downloadService, imageService, fileService);
+        processor.doProcessing(fileName);
         createOriginNameFromUrl("https://s3-eu-west-1.amazonaws.com/lukaroundimg/beelitz2017/1a.jpg");
     }
 }

@@ -29,7 +29,7 @@ public class ImageProcessorTest {
 
     @Before
     public void setUp() {
-        processor = new ImageProcessor(imageDescriptorService, downloadService, fileService, imageService);
+        processor = new ImageProcessor(imageDescriptorService, downloadService, imageService, fileService);
 
     }
 
@@ -37,27 +37,28 @@ public class ImageProcessorTest {
     public void testDoProcessing() {
         //configure mock
         List<ImageDescriptor> testImageDescriptors = createTestImageDescriptors();
-        when(imageDescriptorService.getImageDescriptor(any())).thenReturn(testImageDescriptors);
+        when(imageDescriptorService.getImageDescriptors(any())).thenReturn(testImageDescriptors);
         when(downloadService.downloadImages(any())).thenReturn(createDownloadedImage());
 
 //        when(downloadService.downloadImages(any())).thenReturn(); - ничего не надо передавать?
 //        when(fileService.loadStringsFromFile(any())).thenReturn();
 
         //execute test method
-        processor.doProcessimg("test.txt");
+        processor.doProcessing("test.txt");
 
         //verify
-        verify(imageDescriptorService, times(1)).getImageDescriptor("test.txt");
-        verify(downloadService, times(1)).downloadImages(testImageDescriptors
-                .
+        verify(imageDescriptorService, times(1)).getImageDescriptors("test.txt");
+        verify(downloadService, times(1)).downloadImages(testImageDescriptors);
+
         verify(fileService, times(2)).saveImageAsFile(any());
     }
 
-    private static List<DownloadedImage> createDownloadedImage(){
+    private static List<DownloadedImage> createDownloadedImage() {
         return Arrays.asList(
                 new DownloadedImage(null, true, new ImageDescriptor("http://server.com/image1.jpg", "PREVIEW")),
-                new DownloadedImage(null, true,  new ImageDescriptor("http://server.com/image2.jpg", "THRUMBNAIL")));
+                new DownloadedImage(null, true, new ImageDescriptor("http://server.com/image2.jpg", "THRUMBNAIL")));
     }
+
     private static List<ImageDescriptor> createTestImageDescriptors() {
         return Arrays.asList(
                 new ImageDescriptor("http://server.com/image1.jpg", "PREVIEW"),
