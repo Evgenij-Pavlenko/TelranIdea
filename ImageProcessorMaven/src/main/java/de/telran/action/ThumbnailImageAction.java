@@ -3,16 +3,16 @@ package de.telran.action;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class PreviewImageAction implements ImageAction {
+public class ThumbnailImageAction implements ImageAction {
     @Override
     public BufferedImage doAction(BufferedImage source) {
-        System.out.println("Creating a preview");
-        return null;
+        System.out.println("Creating a thrumbnail");
+        return doResizedThumbnail(source);
     }
 
-    private BufferedImage doResizedPreview(BufferedImage source) {
-        int width = 250;
-        int height = 250;
+    private BufferedImage doResizedThumbnail(BufferedImage source) {
+        int width = 100;
+        int height = 100;
         System.out.println("resizing...");
         int type = source.getType() == 0 ? BufferedImage.TYPE_INT_ARGB : source.getType();
         BufferedImage scaledBI = new BufferedImage(width, height, type);

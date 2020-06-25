@@ -19,6 +19,7 @@ public class DownloadService {
                 BufferedImage image = ImageIO.read(url);
                 imageList.add(new DownloadedImage(image, true, descriptor));
             } catch (Exception ex) {
+                System.err.println(descriptor.getImageUrlName());
                 System.err.println(ex.getMessage());
                 imageList.add(new DownloadedImage(null, false, descriptor));
             }
