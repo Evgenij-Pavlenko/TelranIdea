@@ -1,12 +1,9 @@
 package de.telran;
 
-import de.telran.entity.DownloadedImage;
+import de.telran.entity.ActionableImage;
 import de.telran.entity.ImageDescriptor;
 import de.telran.factory.ImageActionFactory;
-import de.telran.service.DownloadService;
-import de.telran.service.FileService;
-import de.telran.service.ImageDescriptorService;
-import de.telran.service.ImageService;
+import de.telran.service.*;
 
 import java.awt.image.BufferedImage;
 import java.util.List;
@@ -35,27 +32,30 @@ public class ImageProcessor {
     public void doProcessing(String fileName) {
         List<ImageDescriptor> imageDescriptors = imageDescriptorService.getImageDescriptors(fileName);
 
-//        List<String> urls = imageDescriptors.stream().map(d -> d.getImageUrlName()).collect(Collectors.toList());
-
-        List<DownloadedImage> downloadedImages = downloadService.downloadImages(imageDescriptors);
-        List<DownloadedImage> successfullDownloadImages = downloadedImages.stream()
-                .filter(DownloadedImage::isSuccessfull)
+        List<ActionableImage> actionableImages = imageDescriptors
+                .stream()
+                .map(i-> new ActionableImage(null, false, i.getImageUrlName(), i.getActionName()))
                 .collect(Collectors.toList());
 
-        List<BufferedImage> processedImages = successfullDownloadImages
+        List<ActionableImage> downloadedImages = downloadService.downloadImages(actionableImages);
+
+        List<ActionableImage> successfullDownloadImages = downloadedImages.stream()
+                .filter(ActionableImage::isSuccessfull)
+                .collect(Collectors.toList());
+
+        List<ActionableImage> processedImages = successfullDownloadImages
                 .stream()
-                .map(i -> imageService.processImage(i.getImage(), i.getImageDescriptor().getActionName()))
+                .map(i -> imageService.processImage(i))
                 .collect(Collectors.toList());
         processedImages.forEach(i -> fileService.saveImageAsFile(i));
-
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         String fileName = args[0];
-        FileService fileService = new FileService();
+        FileService fileService = new FileService(new ConfigService());
         ImageDescriptorService imageDescriptorService = new ImageDescriptorService(fileService);
         DownloadService downloadService = new DownloadService();
-        ImageService imageService = new ImageService(new ImageActionFactory());
+        ImageService imageService = new ImageService(new ImageActionFactory(new ActionsConfigService()));
         ImageProcessor processor = new ImageProcessor(imageDescriptorService,
                 downloadService, imageService, fileService);
         processor.doProcessing(fileName);

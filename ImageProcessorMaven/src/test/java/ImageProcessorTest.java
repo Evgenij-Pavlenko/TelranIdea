@@ -1,5 +1,5 @@
 import de.telran.ImageProcessor;
-import de.telran.entity.DownloadedImage;
+import de.telran.entity.ActionableImage;
 import de.telran.entity.ImageDescriptor;
 import de.telran.service.DownloadService;
 import de.telran.service.FileService;
@@ -53,10 +53,10 @@ public class ImageProcessorTest {
         verify(fileService, times(2)).saveImageAsFile(any());
     }
 
-    private static List<DownloadedImage> createDownloadedImage() {
+    private static List<ActionableImage> createDownloadedImage() {
         return Arrays.asList(
-                new DownloadedImage(null, true, new ImageDescriptor("http://server.com/image1.jpg", "PREVIEW")),
-                new DownloadedImage(null, true, new ImageDescriptor("http://server.com/image2.jpg", "THRUMBNAIL")));
+                new ActionableImage(null, true, new ImageDescriptor("http://server.com/image1.jpg", "PREVIEW")),
+                new ActionableImage(null, true, new ImageDescriptor("http://server.com/image2.jpg", "THRUMBNAIL")));
     }
 
     private static List<ImageDescriptor> createTestImageDescriptors() {

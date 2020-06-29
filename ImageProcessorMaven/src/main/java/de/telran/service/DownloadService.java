@@ -1,5 +1,6 @@
 package de.telran.service;
 
+import de.telran.entity.ActionableImage;
 import de.telran.entity.DownloadedImage;
 import de.telran.entity.ImageDescriptor;
 
@@ -11,18 +12,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class DownloadService {
-    public List<DownloadedImage> downloadImages(List<ImageDescriptor> imageDescriptor) {
-        List<DownloadedImage> imageList = new ArrayList<>();
-        for (ImageDescriptor descriptor : imageDescriptor) {
+    public List<ActionableImage> downloadImages(List<ActionableImage> images) {
+        List<ActionableImage> imageList = new ArrayList<>(images);
+        for (ActionableImage actionableImage : images) {
             try {
-                URL url = new URL(descriptor.getImageUrlName());
+                URL url = new URL(actionableImage.getSourceUrl());
                 BufferedImage image = ImageIO.read(url);
-                imageList.add(new DownloadedImage(image, true, descriptor));
+                actionableImage.setImage(image);
+                actionableImage.setSuccessfull(true);
             } catch (Exception ex) {
-                System.err.println(descriptor.getImageUrlName());
+                System.err.println(actionableImage.getSourceUrl());
                 System.err.println(ex.getMessage());
-                imageList.add(new DownloadedImage(null, false, descriptor));
-            }
+                actionableImage.setSuccessfull(false);            }
         }
         return imageList;
     }

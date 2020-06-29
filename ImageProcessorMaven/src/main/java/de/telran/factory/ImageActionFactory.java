@@ -1,14 +1,37 @@
 package de.telran.factory;
 
 import de.telran.action.*;
+import de.telran.service.ActionsConfigService;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ImageActionFactory {
-    public ImageAction getImageAction(String actionName) {
-        switch (actionName) {
-            case "GRAYSCALE": return new GrayscaleImageAction();
-            case "THUMBNAIL": return new ThumbnailImageAction();
-            case "PREVIEW": return new PreviewImageAction();
-            default: return new DefaultImageAction();
+
+    private ActionsConfigService configService;
+
+    private Map<String, ImageAction> imageActionsMap = new HashMap<>();
+
+    public ImageActionFactory(ActionsConfigService configService) throws Exception {
+        this.configService = configService;
+
+
+        List<String> actionClassNames = configService.getActionClassNames();
+        String packageName = configService.getActionPackage();
+
+        for (String className : actionClassNames) {
+            Class.forName(packageName + "." + className).getConstructor().newInstance();
         }
+    }
+
+    public ImageAction getImageAction(String actionName) {
+        ImageAction imageAction = imageActionsMap.get(actionName);
+        if (imageAction == null) {
+            return new DefaultImageAction();
+        } else {
+            return imageAction;
+        }
+
     }
 }

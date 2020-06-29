@@ -4,6 +4,12 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class ThumbnailImageAction implements ImageAction {
+
+    @Override
+    public String getName() {
+        return "THRUMBNAIL";
+    }
+
     @Override
     public BufferedImage doAction(BufferedImage source) {
         System.out.println("Creating a thrumbnail");
