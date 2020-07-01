@@ -34,7 +34,7 @@ public class ImageProcessor {
 
         List<ActionableImage> actionableImages = imageDescriptors
                 .stream()
-                .map(i-> new ActionableImage(null, false, i.getImageUrlName(), i.getActionName()))
+                .map(i-> new ActionableImage(null, false, i))
                 .collect(Collectors.toList());
 
         List<ActionableImage> downloadedImages = downloadService.downloadImages(actionableImages);
