@@ -3,6 +3,7 @@ import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class ConfigServiceTest {
@@ -20,8 +21,9 @@ public class ConfigServiceTest {
     }
 
     @Test
-    public void testGetToPathToSavedImages(){
-        String pathSeparator = service.getToPathToSavedImages();
-        assertTrue("c:\\Users\\evgen\\Downloads\\images\\". equals(pathSeparator));
+    public void testGetPathToSavedImages(){
+        String pathSeparator = service.getPathToSavedImages();
+        System.out.println(pathSeparator);
+        assertNotNull(pathSeparator);
     }
 }

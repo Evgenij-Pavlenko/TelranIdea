@@ -11,7 +11,7 @@ public class ActionsConfigService {
 
     public ActionsConfigService() {
         try {
-            InputStream input = ConfigService.class.getClassLoader().getResourceAsStream("application.properties");
+            InputStream input = ConfigService.class.getClassLoader().getResourceAsStream("actions.properties");
             if (input == null) {
                 System.out.println("Sorry, unable to find actions.property");
                 return;
@@ -27,6 +27,8 @@ public class ActionsConfigService {
     }
 
     public List<String> getActionClassNames() {
+        //PreviewImageAction,GrayscaleImageAction,ThumbnailImageAction
+        // -> ["PreviewImageAction", "GrayscaleImageAction", "ThumbnailImageAction"]
         return Arrays.asList(((String) prop.get("action.names")).split(","));
 
     }

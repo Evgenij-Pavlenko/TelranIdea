@@ -8,11 +8,11 @@ public class ActionableImage {
     private String sourceUrl;
     private String actionName;
 
-    public ActionableImage(BufferedImage image, boolean status,ImageDescriptor imageDescriptor) {
+    public ActionableImage(BufferedImage image, boolean status, String sourceUrl, String actionName) {
         this.image = image;
         this.isSuccessfull = status;
-        this.sourceUrl = imageDescriptor.getImageUrlName();
-        this.actionName = imageDescriptor.getActionName();
+        this.sourceUrl = sourceUrl;
+        this.actionName = actionName;
 
     }
 

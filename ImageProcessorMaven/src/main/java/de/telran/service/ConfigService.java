@@ -14,6 +14,7 @@ public class ConfigService {
                 System.out.println("Sorry, unable to find application.properties");
                 return;
             }
+            //load properties from class path, inside static method
             prop.load(input);
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -24,7 +25,7 @@ public class ConfigService {
         return (String) prop.get("csv_separator");
     }
 
-    public String getToPathToSavedImages() {
+    public String getPathToSavedImages() {
         return (String) prop.get("path_to_saveg_images");
 
     }

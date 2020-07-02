@@ -8,12 +8,8 @@ import de.telran.service.ImageService;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -30,7 +26,6 @@ public class ImageProcessorTest {
     @Before
     public void setUp() {
         processor = new ImageProcessor(imageDescriptorService, downloadService, imageService, fileService);
-
     }
 
     @Test
@@ -40,31 +35,27 @@ public class ImageProcessorTest {
         when(imageDescriptorService.getImageDescriptors(any())).thenReturn(testImageDescriptors);
         when(downloadService.downloadImages(any())).thenReturn(createDownloadedImage());
 
-//        when(downloadService.downloadImages(any())).thenReturn(); - ничего не надо передавать?
-//        when(fileService.loadStringsFromFile(any())).thenReturn();
-
         //execute test method
         processor.doProcessing("test.txt");
 
         //verify
         verify(imageDescriptorService, times(1)).getImageDescriptors("test.txt");
-        verify(downloadService, times(1)).downloadImages(createDownloadedImage());
+        verify(downloadService, times(1)).downloadImages(testImageDescriptors);
 
         verify(fileService, times(2)).saveImageAsFile(any());
+
     }
 
     private static List<ActionableImage> createDownloadedImage() {
         return Arrays.asList(
                 new ActionableImage(null, true, new ImageDescriptor("http://server.com/image1.jpg", "PREVIEW")),
-                new ActionableImage(null, true, new ImageDescriptor("http://server.com/image2.jpg", "THRUMBNAIL")));
+                new ActionableImage(null, true, new ImageDescriptor("http://server.com/image2.jpg", "THUMBNAIL"))
+                );
     }
 
     private static List<ImageDescriptor> createTestImageDescriptors() {
         return Arrays.asList(
                 new ImageDescriptor("http://server.com/image1.jpg", "PREVIEW"),
-                new ImageDescriptor("http://server.com/image2.jpg", "THRUMBNAIL"));
+                new ImageDescriptor("http://server.com/image2.jpg", "THUMBNAIL"));
     }
-//    private  static List<DownloadedImage> createTestUrlList(){ - а тут никак. Похоже и без этого работает.
-//        return Arrays.asList(new DownloadedImage(new BufferedImage(ImageIO.read(URL)), true));
-//    }
 }

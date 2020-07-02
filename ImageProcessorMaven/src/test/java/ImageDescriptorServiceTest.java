@@ -10,50 +10,53 @@ import java.util.List;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-
 public class ImageDescriptorServiceTest {
 
     //mock creation
     FileService fileService = mock(FileService.class);
 
     @Test
-    public void testGetEmptyImageDescriptors(){
+    public void testGetEmptyImageDescriptors() {
         //configure mocks
-        when(fileService.loadStringsFromFile("testFile.txt")).thenReturn(Collections.emptyList());
+        when(fileService.loadStringsFromFile("testfile.txt")).thenReturn(Collections.emptyList());
 
         //execute testing code
 
         ImageDescriptorService service = new ImageDescriptorService(fileService);
-        List<ImageDescriptor> imageDescriptors = service.getImageDescriptors("testFile.txt");
-        //assert result
+        List<ImageDescriptor> imageDescriptors = service.getImageDescriptors("testfile.txt");
+
+        //assert results
         assertTrue(imageDescriptors.isEmpty());
-        verify(fileService, times(1)).loadStringsFromFile("testFile.txt");
+
+        verify(fileService, times(1)).loadStringsFromFile("testfile.txt");
+
     }
 
     @Test
-    public void testGetImageDescriptors(){
+    public void testGetImageDescriptors() {
         //configure mocks
-        when(fileService.loadStringsFromFile("testFile.txt")).thenReturn(createTestString());
+        when(fileService.loadStringsFromFile("testfile.txt")).thenReturn(createTestString());
 
         //execute testing code
 
         ImageDescriptorService service = new ImageDescriptorService(fileService);
-        List<ImageDescriptor> imageDescriptors = service.getImageDescriptors("testFile.txt");
-        //assert result
+        List<ImageDescriptor> imageDescriptors = service.getImageDescriptors("testfile.txt");
+
+        //assert results
         System.out.println(imageDescriptors);
-        assertFalse(imageDescriptors.isEmpty());
         assertEquals(2, imageDescriptors.size());
         assertEquals("abc", imageDescriptors.get(0).getImageUrlName());
         assertEquals("PREVIEW", imageDescriptors.get(0).getActionName());
-        assertEquals("defr", imageDescriptors.get(1).getImageUrlName());
-        assertEquals("THRUMBNAIL", imageDescriptors.get(1).getActionName());
+
     }
-    public static List<String> createTestString(){
-        return Arrays.asList("abc;PREVIEW", "defr;THRUMBNAIL");
+
+    private static List<String> createTestString() {
+        return Arrays.asList("abc;PREVIEW", "defiklm;THUMBNAIL");
     }
-    private static List<ImageDescriptor> createTestImageDescriptors(){
-         return Arrays.asList(
+
+    private static List<ImageDescriptor> createTestImageDescriptors() {
+        return Arrays.asList(
                 new ImageDescriptor("abc", "PREVIEW"),
-                new ImageDescriptor("defr", "THRUMBNAIL"));
+                new ImageDescriptor("defiklm", "THUMBNAIL"));
     }
 }

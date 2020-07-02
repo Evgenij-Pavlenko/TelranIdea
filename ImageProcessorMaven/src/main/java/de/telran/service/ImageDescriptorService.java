@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ImageDescriptorService {
-    private static final  String CSV_SEPARATOR = ";";
+
+    private static final String CSV_SEPARATOR = ";";
 
     private FileService fileService;
 
@@ -15,8 +16,7 @@ public class ImageDescriptorService {
     }
 
     public List<ImageDescriptor> getImageDescriptors(String fileName) {
-        return fileService.loadStringsFromFile(fileName)
-                .stream()
+        return fileService.loadStringsFromFile(fileName).stream()
                 .map(s -> stringToImageDescriptor(s))
                 .collect(Collectors.toList());
     }
@@ -25,4 +25,6 @@ public class ImageDescriptorService {
         String[] split = string.split(CSV_SEPARATOR);
         return new ImageDescriptor(split[0], split[1]);
     }
+
+
 }

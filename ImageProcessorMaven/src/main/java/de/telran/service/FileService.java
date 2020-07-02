@@ -12,14 +12,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FileService {
-
     ConfigService configService;
 
     public FileService(ConfigService configService) {
         this.configService = configService;
-    }
-
-    public FileService() {
     }
 
     public List<String> loadStringsFromFile(String fileName) {
@@ -34,11 +30,12 @@ public class FileService {
     public void saveImageAsFile(ActionableImage image) {
 
         try {
-            ImageIO.write(image.getImage(), "jpg",
-                    new File(configService.getToPathToSavedImages() + "img" + image.hashCode() + ".jpg"));
-
+            int indexFirst =image.getSourceUrl().indexOf('/')+2;
+            ImageIO.write(image.getImage(), "jpg",new File(configService.getPathToSavedImages()+"img_"
+                    +image.getSourceUrl().substring(indexFirst).replaceAll("/", ".")));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
+    //https://s3-eu-west-1.amazonaws.com/lukaroundimg/beelitz2017/1a.jpg -> s3-eu-west-1.amazonaws.com.lukaroundimg.beelitz2017.1a.jpg
 }
