@@ -47,4 +47,14 @@ public class ActionableImage {
     public void setActionName(String actionName) {
         this.actionName = actionName;
     }
+
+    @Override
+    public String toString() {
+        return "ActionableImage{" +
+                "image=" + image +
+                ", isSuccessfull=" + isSuccessfull +
+                ", sourceUrl='" + sourceUrl + '\'' +
+                ", actionName='" + actionName + '\'' +
+                '}';
+    }
 }

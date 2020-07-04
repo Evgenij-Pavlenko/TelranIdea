@@ -7,7 +7,7 @@ public class ThumbnailImageAction implements ImageAction {
 
     @Override
     public String getName() {
-        return "THRUMBNAIL";
+        return "THUMBNAIL";
     }
 
     @Override

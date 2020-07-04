@@ -30,12 +30,17 @@ public class FileService {
     public void saveImageAsFile(ActionableImage image) {
 
         try {
-            int indexFirst =image.getSourceUrl().indexOf('/')+2;
-            ImageIO.write(image.getImage(), "jpg",new File(configService.getPathToSavedImages()+"img_"
-                    +image.getSourceUrl().substring(indexFirst).replaceAll("/", ".")));
+            ImageIO.write(image.getImage(), "jpg", new File(configService.getPathToSavedImages() + createFileName(image)));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
+
     //https://s3-eu-west-1.amazonaws.com/lukaroundimg/beelitz2017/1a.jpg -> s3-eu-west-1.amazonaws.com.lukaroundimg.beelitz2017.1a.jpg
+    private static String createFileName(ActionableImage image) {
+        int indexFirst = image.getSourceUrl().indexOf('/') + 2; // cut "html://"
+        return "img_" + image.getSourceUrl().substring(indexFirst).replaceAll("/", ".");
+    }
 }
+
+
