@@ -62,29 +62,20 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="gitignore" />
     <option name="LAST_COMMIT_MESSAGE" value="gitignore" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="409" y="22" key="CommitChangelistDialog2" timestamp="1584484906731">
-      <screen x="0" y="0" width="1510" height="850" />
-    </state>
-    <state x="409" y="22" key="CommitChangelistDialog2/0.0.1510.850@0.0.1510.850" timestamp="1584484906731" />
     <state x="484" y="94" width="424" height="484" key="FileChooserDialogImpl" timestamp="1588464380382">
       <screen x="43" y="27" width="1323" height="741" />
     </state>
-    <state x="441" y="57" key="FileChooserDialogImpl/0.0.1323.629@0.0.1323.629" timestamp="1584392861623" />
-    <state x="503" y="77" key="FileChooserDialogImpl/0.0.1510.850@0.0.1510.850" timestamp="1584484966984" />
     <state x="484" y="94" width="424" height="484" key="FileChooserDialogImpl/43.27.1323.741@43.27.1323.741" timestamp="1588464380382" />
-    <state x="347" y="159" key="Vcs.Push.Dialog.v2" timestamp="1584484916061">
-      <screen x="0" y="0" width="1510" height="850" />
+    <state x="43" y="27" width="1313" height="741" key="new project wizard" timestamp="1595869888475">
+      <screen x="43" y="27" width="1323" height="741" />
     </state>
-    <state x="347" y="159" key="Vcs.Push.Dialog.v2/0.0.1510.850@0.0.1510.850" timestamp="1584484916061" />
-    <state x="44" y="0" key="new project wizard" timestamp="1584392873021">
-      <screen x="0" y="0" width="1323" height="629" />
-    </state>
-    <state x="44" y="0" key="new project wizard/0.0.1323.629@0.0.1323.629" timestamp="1584392873021" />
+    <state x="43" y="27" width="1313" height="741" key="new project wizard/43.27.1323.741@43.27.1323.741" timestamp="1595869888475" />
   </component>
 </project>
