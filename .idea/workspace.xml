@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a8f606a-28d3-43fc-b956-e07b5d975bbf" name="Default Changelist" comment="" />
+    <list default="true" id="8a8f606a-28d3-43fc-b956-e07b5d975bbf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,7 +33,6 @@
   <component name="ProjectId" id="1ZE6G6gnJvZ7dHNPIGX7iiZGlPk" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -22,6 +41,27 @@
   </component>
   <component name="SvnConfiguration">
     <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8a8f606a-28d3-43fc-b956-e07b5d975bbf" name="Default Changelist" comment="" />
+      <created>1588464344122</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588464344122</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="gitignore" />
@@ -32,11 +72,12 @@
       <screen x="0" y="0" width="1510" height="850" />
     </state>
     <state x="409" y="22" key="CommitChangelistDialog2/0.0.1510.850@0.0.1510.850" timestamp="1584484906731" />
-    <state x="503" y="77" key="FileChooserDialogImpl" timestamp="1584484966984">
-      <screen x="0" y="0" width="1510" height="850" />
+    <state x="484" y="94" width="424" height="484" key="FileChooserDialogImpl" timestamp="1588464380382">
+      <screen x="43" y="27" width="1323" height="741" />
     </state>
     <state x="441" y="57" key="FileChooserDialogImpl/0.0.1323.629@0.0.1323.629" timestamp="1584392861623" />
     <state x="503" y="77" key="FileChooserDialogImpl/0.0.1510.850@0.0.1510.850" timestamp="1584484966984" />
+    <state x="484" y="94" width="424" height="484" key="FileChooserDialogImpl/43.27.1323.741@43.27.1323.741" timestamp="1588464380382" />
     <state x="347" y="159" key="Vcs.Push.Dialog.v2" timestamp="1584484916061">
       <screen x="0" y="0" width="1510" height="850" />
     </state>
