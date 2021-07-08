@@ -3,20 +3,11 @@ package com.company;
 public abstract class Room {
     private String number;
     private int capacity;
-    private String service;
-    private double price;
-
-    public Room(String number, int capacity, String service, int price) {
-        this.number = number;
-        this.capacity = capacity;
-        this.service = service;
-        this.price = price;
-    }
+    private final double basePrice=100;
 
     public Room(String number, int capacity) {
         this.number = number;
         this.capacity = capacity;
-        this.price =price*1*capacity;
     }
 
     public Room(String number) {
@@ -24,12 +15,11 @@ public abstract class Room {
         this.capacity = 1;
     }
 
-    public String getService() {
-        return service;
-    }
+    public abstract double getPrice();
+    public abstract void duService();
 
-    public double getPrice() {
-        return price;
+    protected double getBasePrice() {
+        return basePrice;
     }
 
     public String getNumber() {
@@ -40,20 +30,4 @@ public abstract class Room {
         return capacity;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return "Room: " +
-                "number= " + number + ", " +
-                ", capacity= " + capacity +
-                ", service= " + service + ", " +
-                ", price= " + price;
-    }
-
-    public void doService() {
-        System.out.println("This is " + this.getClass().getSimpleName() + ", " + this.service);
-    }
 }
